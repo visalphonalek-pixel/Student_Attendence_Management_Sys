@@ -14,13 +14,16 @@
         <h4>Student Detail</h4>
         <hr>
         <p><strong>ID:</strong> {{ student.student_id }}</p>
-        <p><strong>Name:</strong> {{ student.first_name }} {{ student.last_name }}</p>
-        <p><strong>Gender:</strong> {{ student.get_gender_display }}</p>
-        <p><strong>Date of Birth:</strong> {{ student.date_of_birth }}</p>
-        <p><strong>Phone:</strong> {{ student.phone }}</p>
-        <p><strong>Email:</strong> {{ student.email }}</p>
-        <p><strong>Classroom:</strong> {{ student.classroom }}</p>
-        <p><strong>Active:</strong> {{ student.is_active }}</p>
+        <p><strong>Name:</strong> {{ student.firstname }} {{ student.lastname }}</p>
+        <p><strong>Gender:</strong> {{ student.get_gender_display|default:"—" }}</p>
+        <p><strong>Date of Birth:</strong> {{ student.birthdate|default:"—" }}</p>
+        <p><strong>Phone:</strong> {{ student.phone|default:"—" }}</p>
+        <p><strong>Email:</strong> {{ student.email|default:"—" }}</p>
+        <p><strong>Address:</strong> {{ student.address|default:"—"|linebreaksbr }}</p>
+        <p><strong>Classroom:</strong> {{ student.classroom|default:"—" }}</p>
+        <p><strong>Status:</strong> {{ student.status }}</p>
+        <p><strong>Created:</strong> {{ student.created_at }}</p>
+        <p><strong>Updated:</strong> {{ student.updated_at }}</p>
         <a href="/students/{{ student.pk }}/edit/" class="btn btn-warning">Edit</a>
         <a href="/students/" class="btn btn-secondary">Back</a>
     </div>

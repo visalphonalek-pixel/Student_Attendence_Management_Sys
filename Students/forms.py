@@ -5,10 +5,11 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = [
-            'student_id', 'first_name', 'last_name',
-            'gender', 'date_of_birth', 'phone', 'email',
-            'classroom', 'is_active'
+            'student_id', 'firstname', 'lastname',
+            'gender', 'birthdate', 'phone', 'email',
+            'address', 'classroom', 'status'
         ]
         widgets = {
-            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
+            'birthdate': forms.DateInput(attrs={'type': 'date'}),
+            'address': forms.Textarea(attrs={'rows': 3, 'class': 'form-control'}),
         }

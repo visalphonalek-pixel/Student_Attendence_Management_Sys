@@ -22,7 +22,7 @@
                 <th>Gender</th>
                 <th>Classroom</th>
                 <th>Phone</th>
-                <th>Active</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -30,11 +30,18 @@
             {% for student in students %}
             <tr>
                 <td>{{ student.student_id }}</td>
-                <td>{{ student.first_name }} {{ student.last_name }}</td>
+                <td>{{ student.firstname }} {{ student.lastname }}</td>
                 <td>{{ student.get_gender_display }}</td>
-                <td>{{ student.classroom }}</td>
-                <td>{{ student.phone }}</td>
-                <td>{{ student.is_active }}</td>
+                <td>{{ student.classroom|default:"—" }}</td>
+                <td>{{ student.phone|default:"—" }}</td>
+                <td>
+                    <span class="badge 
+                        {% if student.status == 'Enrolled' %}bg-success
+                        {% elif student.status == 'Graduated' %}bg-primary
+                        {% else %}bg-secondary{% endif %}">
+                        {{ student.status }}
+                    </span>
+                </td>
                 <td>
                     <a href="/students/{{ student.pk }}/" class="btn btn-sm btn-info">View</a>
                     <a href="/students/{{ student.pk }}/edit/" class="btn btn-sm btn-warning">Edit</a>
