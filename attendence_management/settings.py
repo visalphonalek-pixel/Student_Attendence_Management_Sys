@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'Attendances',
     'Attendancedetails',
     'Subjects',
+    'auththentication',
 ]
 
 MIDDLEWARE = [
