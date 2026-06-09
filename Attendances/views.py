@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from authentication.decorators import jwt_required
-from .models import Attendance, AttendanceDetail
-from .forms import AttendanceForm, AttendanceDetailForm
+from .models import Attendance
+from .forms import AttendanceForm
 
 @jwt_required
 def attendance_list(request):
